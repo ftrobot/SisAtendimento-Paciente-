@@ -17,6 +17,8 @@ public class GerenteUI extends javax.swing.JFrame {
     /**
      * Creates new form GerenteUI
      */
+    
+    private LoginUI l;
    
     URL url  = this.getClass().getResource("/com/clinica/images/gerente.png");
     
@@ -213,7 +215,12 @@ public class GerenteUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sairMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairMenuMouseClicked
-        this.dispose();
+        
+       l = new LoginUI();
+       
+       l.setVisible(true);
+       this.dispose();
+        
     }//GEN-LAST:event_sairMenuMouseClicked
 
     private void sairMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairMenuMouseEntered
