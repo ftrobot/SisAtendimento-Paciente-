@@ -19,6 +19,7 @@ public class GerenteUI extends javax.swing.JFrame {
      */
     
     private LoginUI l;
+    private static PacienteUI p = new PacienteUI();
    
     URL url  = this.getClass().getResource("/com/clinica/images/gerente.png");
     
@@ -93,6 +94,11 @@ public class GerenteUI extends javax.swing.JFrame {
         addpacienteMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addpacienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/pessoa.png"))); // NOI18N
         addpacienteMenu.setText("Cadastrar Paciente");
+        addpacienteMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addpacienteMenuActionPerformed(evt);
+            }
+        });
         cadastrosMenu.add(addpacienteMenu);
 
         addmedicoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
@@ -195,7 +201,6 @@ public class GerenteUI extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(sairMenu);
-        sairMenu.getAccessibleContext().setAccessibleName("Sair");
 
         setJMenuBar(jMenuBar1);
 
@@ -226,6 +231,10 @@ public class GerenteUI extends javax.swing.JFrame {
     private void sairMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairMenuMouseEntered
         sairMenu.setToolTipText("Aperte para sair");
     }//GEN-LAST:event_sairMenuMouseEntered
+
+    private void addpacienteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpacienteMenuActionPerformed
+        p.setVisible(true);
+    }//GEN-LAST:event_addpacienteMenuActionPerformed
 
     /**
      * @param args the command line arguments

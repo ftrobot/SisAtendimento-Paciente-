@@ -5,6 +5,10 @@
  */
 package com.clinica.view;
 
+/**
+ *
+ * @author Jonathan
+ */
 public class LoginUI extends javax.swing.JFrame {
 
     /**
