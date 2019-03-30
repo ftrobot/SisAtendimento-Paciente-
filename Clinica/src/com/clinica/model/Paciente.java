@@ -10,21 +10,37 @@ package com.clinica.model;
  * @author Jonathan
  */
 public class Paciente {
-    
+
+    private Endereco endereco;
+    private Telefone telefone;
+
     private String nome;
     private int rg;
-    private int cpf;
+    private long cpf;
     private String data_nasc;
     private String pSaude;
     private String email;
     private String sexo;
 
-    public String getSexo() {
-        return sexo;
+    public Paciente() {
+        this.endereco = new Endereco();
+        this.telefone = new Telefone();
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Telefone getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Telefone telefone) {
+        this.telefone = telefone;
     }
 
     public String getNome() {
@@ -43,11 +59,11 @@ public class Paciente {
         this.rg = rg;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
@@ -74,5 +90,13 @@ public class Paciente {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
 }

@@ -11,15 +11,42 @@ package com.clinica.model;
  */
 public class Funcionario {
 
+    private Setor setor;
+    private Endereco endereco;
+    private Telefone telefone;
+    
     private String nome;
     private int rg;
-    private int cpf;
+    private Long cpf;
     private String data_nasc;
     private String email;
     private String sexo;
-    private String tipo;
     private int carteiraTrabalho;
-    private int pis;
+    private Long pis;
+    private Double salario;
+    private String cargo;
+
+    public Funcionario() {
+        this.setor = new Setor();
+        this.endereco = new Endereco();
+        this.telefone = new Telefone();
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public Setor getSetor() {
+        return setor;
+    }
+
+    public void setSetor(Setor setor) {
+        this.setor = setor;
+    }
 
     public String getNome() {
         return nome;
@@ -37,11 +64,11 @@ public class Funcionario {
         this.rg = rg;
     }
 
-    public int getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
@@ -69,12 +96,12 @@ public class Funcionario {
         this.sexo = sexo;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setCargo(String tipo) {
+        this.cargo = tipo;
     }
 
     public int getCarteiraTrabalho() {
@@ -85,12 +112,28 @@ public class Funcionario {
         this.carteiraTrabalho = carteiraTrabalho;
     }
 
-    public int getPis() {
+    public Long getPis() {
         return pis;
     }
 
-    public void setPis(int pis) {
+    public void setPis(Long pis) {
         this.pis = pis;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Telefone getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Telefone telefone) {
+        this.telefone = telefone;
     }
 
 }
