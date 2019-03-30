@@ -6,7 +6,6 @@
 package com.clinica.view;
 
 import java.net.URL;
-import com.clinica.*;
 
 /**
  *
@@ -19,7 +18,9 @@ public class GerenteUI extends javax.swing.JFrame {
      */
     
     private LoginUI l;
-    private static PacienteUI p = new PacienteUI();
+    private static CadastroPacienteUI p = new CadastroPacienteUI();
+    private static CadastroAtendenteUI a = new CadastroAtendenteUI();
+    private static CadastroMedicoUI m = new CadastroMedicoUI();
    
     URL url  = this.getClass().getResource("/com/clinica/images/gerente.png");
     
@@ -40,14 +41,15 @@ public class GerenteUI extends javax.swing.JFrame {
 
         backgroundPanel = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        cadastrosMenu = new javax.swing.JMenu();
+        menuCadastros = new javax.swing.JMenu();
         addpacienteMenu = new javax.swing.JMenuItem();
         addmedicoMenu = new javax.swing.JMenuItem();
         addatendenteMenu = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        addsalarioMenu = new javax.swing.JMenuItem();
         addvalorCMenu = new javax.swing.JMenuItem();
-        consultasMenu = new javax.swing.JMenu();
+        menuEditar = new javax.swing.JMenu();
+        menuEditarFuncionario = new javax.swing.JMenuItem();
+        menuConsultas = new javax.swing.JMenu();
         cpacienteMenu = new javax.swing.JMenuItem();
         cmedicoMenu = new javax.swing.JMenuItem();
         catendenteMenu = new javax.swing.JMenuItem();
@@ -84,11 +86,11 @@ public class GerenteUI extends javax.swing.JFrame {
         jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
 
-        cadastrosMenu.setBackground(new java.awt.Color(255, 255, 255));
-        cadastrosMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/cadastro.png"))); // NOI18N
-        cadastrosMenu.setText("Cadastros");
-        cadastrosMenu.setBorderPainted(false);
-        cadastrosMenu.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
+        menuCadastros.setBackground(new java.awt.Color(255, 255, 255));
+        menuCadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/cadastro.png"))); // NOI18N
+        menuCadastros.setText("Cadastros");
+        menuCadastros.setBorderPainted(false);
+        menuCadastros.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
 
         addpacienteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         addpacienteMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -99,91 +101,107 @@ public class GerenteUI extends javax.swing.JFrame {
                 addpacienteMenuActionPerformed(evt);
             }
         });
-        cadastrosMenu.add(addpacienteMenu);
+        menuCadastros.add(addpacienteMenu);
 
         addmedicoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         addmedicoMenu.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         addmedicoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/medico.png"))); // NOI18N
         addmedicoMenu.setText("Cadastrar Médico");
-        cadastrosMenu.add(addmedicoMenu);
+        addmedicoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addmedicoMenuActionPerformed(evt);
+            }
+        });
+        menuCadastros.add(addmedicoMenu);
 
         addatendenteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         addatendenteMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addatendenteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/atendente.png"))); // NOI18N
         addatendenteMenu.setText("Cadastrar Atendente");
-        cadastrosMenu.add(addatendenteMenu);
-        cadastrosMenu.add(jSeparator1);
+        addatendenteMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addatendenteMenuActionPerformed(evt);
+            }
+        });
+        menuCadastros.add(addatendenteMenu);
+        menuCadastros.add(jSeparator1);
 
-        addsalarioMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
-        addsalarioMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        addsalarioMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/Salario.png"))); // NOI18N
-        addsalarioMenu.setText("Cadastrar Salário");
-        cadastrosMenu.add(addsalarioMenu);
-
-        addvalorCMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        addvalorCMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
         addvalorCMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addvalorCMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/valorConsulta.png"))); // NOI18N
         addvalorCMenu.setText("Cadastrar Valor De Consulta");
-        cadastrosMenu.add(addvalorCMenu);
+        menuCadastros.add(addvalorCMenu);
 
-        jMenuBar1.add(cadastrosMenu);
+        jMenuBar1.add(menuCadastros);
 
-        consultasMenu.setBackground(new java.awt.Color(255, 255, 255));
-        consultasMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/search.png"))); // NOI18N
-        consultasMenu.setText("Consultas");
-        consultasMenu.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
+        menuEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/5298edit-document_icon-icons.com_54542.png"))); // NOI18N
+        menuEditar.setText("Editar Cadastros");
+        menuEditar.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
+
+        menuEditarFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        menuEditarFuncionario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuEditarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/8265businessapplication_edit_male_user_thepencil_theclient_negocio_2321.png"))); // NOI18N
+        menuEditarFuncionario.setText("Editar Funcionario");
+        menuEditar.add(menuEditarFuncionario);
+
+        jMenuBar1.add(menuEditar);
+
+        menuConsultas.setBackground(new java.awt.Color(255, 255, 255));
+        menuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/search.png"))); // NOI18N
+        menuConsultas.setText("Consultas");
+        menuConsultas.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
 
         cpacienteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
         cpacienteMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         cpacienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/pessoa.png"))); // NOI18N
         cpacienteMenu.setText("Paciente");
-        consultasMenu.add(cpacienteMenu);
+        menuConsultas.add(cpacienteMenu);
 
         cmedicoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
         cmedicoMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         cmedicoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/medico.png"))); // NOI18N
         cmedicoMenu.setText("Médico");
-        consultasMenu.add(cmedicoMenu);
+        menuConsultas.add(cmedicoMenu);
 
         catendenteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK));
         catendenteMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         catendenteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/atendente.png"))); // NOI18N
         catendenteMenu.setText("Atendente");
-        consultasMenu.add(catendenteMenu);
-        consultasMenu.add(jSeparator2);
+        menuConsultas.add(catendenteMenu);
+        menuConsultas.add(jSeparator2);
 
         cfolhapagamentoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         cfolhapagamentoMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         cfolhapagamentoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/folhaPagamento.png"))); // NOI18N
         cfolhapagamentoMenu.setText("Folha De Pagamento");
-        consultasMenu.add(cfolhapagamentoMenu);
+        menuConsultas.add(cfolhapagamentoMenu);
 
         chistoricofrequenciaMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         chistoricofrequenciaMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         chistoricofrequenciaMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/frequencia.png"))); // NOI18N
         chistoricofrequenciaMenu.setText("Histórico De Frequência");
-        consultasMenu.add(chistoricofrequenciaMenu);
-        consultasMenu.add(jSeparator3);
+        menuConsultas.add(chistoricofrequenciaMenu);
+        menuConsultas.add(jSeparator3);
 
         clistapacienteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
         clistapacienteMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         clistapacienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/pessoa.png"))); // NOI18N
         clistapacienteMenu.setText("Lista De Pacientes");
-        consultasMenu.add(clistapacienteMenu);
+        menuConsultas.add(clistapacienteMenu);
 
         clistamedicoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
         clistamedicoMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         clistamedicoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/medico.png"))); // NOI18N
         clistamedicoMenu.setText("Lista De Médicos");
-        consultasMenu.add(clistamedicoMenu);
+        menuConsultas.add(clistamedicoMenu);
 
         clistaatendenteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
         clistaatendenteMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         clistaatendenteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/atendente.png"))); // NOI18N
         clistaatendenteMenu.setText("Lista De Atendentes");
-        consultasMenu.add(clistaatendenteMenu);
+        menuConsultas.add(clistaatendenteMenu);
 
-        jMenuBar1.add(consultasMenu);
+        jMenuBar1.add(menuConsultas);
 
         sairMenu.setBackground(new java.awt.Color(255, 255, 255));
         sairMenu.setForeground(new java.awt.Color(255, 51, 51));
@@ -236,6 +254,14 @@ public class GerenteUI extends javax.swing.JFrame {
         p.setVisible(true);
     }//GEN-LAST:event_addpacienteMenuActionPerformed
 
+    private void addatendenteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addatendenteMenuActionPerformed
+        a.setVisible(true);
+    }//GEN-LAST:event_addatendenteMenuActionPerformed
+
+    private void addmedicoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmedicoMenuActionPerformed
+        m.setVisible(true);
+    }//GEN-LAST:event_addmedicoMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -275,10 +301,8 @@ public class GerenteUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem addatendenteMenu;
     private javax.swing.JMenuItem addmedicoMenu;
     private javax.swing.JMenuItem addpacienteMenu;
-    private javax.swing.JMenuItem addsalarioMenu;
     private javax.swing.JMenuItem addvalorCMenu;
     private javax.swing.JPanel backgroundPanel;
-    private javax.swing.JMenu cadastrosMenu;
     private javax.swing.JMenuItem catendenteMenu;
     private javax.swing.JMenuItem cfolhapagamentoMenu;
     private javax.swing.JMenuItem chistoricofrequenciaMenu;
@@ -286,12 +310,15 @@ public class GerenteUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem clistamedicoMenu;
     private javax.swing.JMenuItem clistapacienteMenu;
     private javax.swing.JMenuItem cmedicoMenu;
-    private javax.swing.JMenu consultasMenu;
     private javax.swing.JMenuItem cpacienteMenu;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JMenu menuCadastros;
+    private javax.swing.JMenu menuConsultas;
+    private javax.swing.JMenu menuEditar;
+    private javax.swing.JMenuItem menuEditarFuncionario;
     private javax.swing.JMenu sairMenu;
     // End of variables declaration//GEN-END:variables
 }
