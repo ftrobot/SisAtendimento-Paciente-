@@ -77,7 +77,7 @@ public class CadastroPacienteUI extends javax.swing.JFrame {
 
         jLabel4.setText("*DATA DE NASCIMENTO:");
 
-        jLabel5.setText("PLANBO DE SAÚDE:");
+        jLabel5.setText("PLANO DE SAÚDE:");
 
         jLabel6.setText("E-MAIL:");
 

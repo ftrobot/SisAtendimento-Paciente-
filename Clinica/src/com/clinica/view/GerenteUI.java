@@ -21,6 +21,7 @@ public class GerenteUI extends javax.swing.JFrame {
     private static CadastroPacienteUI p = new CadastroPacienteUI();
     private static CadastroAtendenteUI a = new CadastroAtendenteUI();
     private static CadastroMedicoUI m = new CadastroMedicoUI();
+    private static CadastroGerenteUI g = new CadastroGerenteUI();
    
     URL url  = this.getClass().getResource("/com/clinica/images/gerente.png");
     
@@ -45,14 +46,31 @@ public class GerenteUI extends javax.swing.JFrame {
         addpacienteMenu = new javax.swing.JMenuItem();
         addmedicoMenu = new javax.swing.JMenuItem();
         addatendenteMenu = new javax.swing.JMenuItem();
+        menuAddGerente = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        menuAddSetor = new javax.swing.JMenuItem();
         addvalorCMenu = new javax.swing.JMenuItem();
         menuEditar = new javax.swing.JMenu();
-        menuEditarFuncionario = new javax.swing.JMenuItem();
+        menuEditarAorG = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        menuEditarPaciente = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        menuEditarSetor = new javax.swing.JMenuItem();
+        menuEditarValorConsulta = new javax.swing.JMenuItem();
+        menuDeletarCadastros = new javax.swing.JMenu();
+        menuDeletarPaciente = new javax.swing.JMenuItem();
+        menuDeletarMedico = new javax.swing.JMenuItem();
+        menuDeletarAtendente = new javax.swing.JMenuItem();
+        menuDeletarGerente = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        menuDeletarSetor = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuConsultas = new javax.swing.JMenu();
         cpacienteMenu = new javax.swing.JMenuItem();
         cmedicoMenu = new javax.swing.JMenuItem();
         catendenteMenu = new javax.swing.JMenuItem();
+        menuConsultasSetor = new javax.swing.JMenuItem();
+        menuConsultasConsulta = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         cfolhapagamentoMenu = new javax.swing.JMenuItem();
         chistoricofrequenciaMenu = new javax.swing.JMenuItem();
@@ -60,6 +78,8 @@ public class GerenteUI extends javax.swing.JFrame {
         clistapacienteMenu = new javax.swing.JMenuItem();
         clistamedicoMenu = new javax.swing.JMenuItem();
         clistaatendenteMenu = new javax.swing.JMenuItem();
+        menuListaConsulta = new javax.swing.JMenuItem();
+        menuListaSetores = new javax.swing.JMenuItem();
         sairMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -75,7 +95,7 @@ public class GerenteUI extends javax.swing.JFrame {
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 805, Short.MAX_VALUE)
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,9 +144,26 @@ public class GerenteUI extends javax.swing.JFrame {
             }
         });
         menuCadastros.add(addatendenteMenu);
+
+        menuAddGerente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        menuAddGerente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuAddGerente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/gerente.png"))); // NOI18N
+        menuAddGerente.setText("Cadastrar Gerente");
+        menuAddGerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAddGerenteActionPerformed(evt);
+            }
+        });
+        menuCadastros.add(menuAddGerente);
         menuCadastros.add(jSeparator1);
 
-        addvalorCMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        menuAddSetor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        menuAddSetor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuAddSetor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/5585Add_Folder_25911.png"))); // NOI18N
+        menuAddSetor.setText("Cadastrar Setores");
+        menuCadastros.add(menuAddSetor);
+
+        addvalorCMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         addvalorCMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addvalorCMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/valorConsulta.png"))); // NOI18N
         addvalorCMenu.setText("Cadastrar Valor De Consulta");
@@ -138,13 +175,70 @@ public class GerenteUI extends javax.swing.JFrame {
         menuEditar.setText("Editar Cadastros");
         menuEditar.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
 
-        menuEditarFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
-        menuEditarFuncionario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        menuEditarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/8265businessapplication_edit_male_user_thepencil_theclient_negocio_2321.png"))); // NOI18N
-        menuEditarFuncionario.setText("Editar Funcionario");
-        menuEditar.add(menuEditarFuncionario);
+        menuEditarAorG.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuEditarAorG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/8265businessapplication_edit_male_user_thepencil_theclient_negocio_2321.png"))); // NOI18N
+        menuEditarAorG.setText("Editar Atendente/Gerente");
+        menuEditar.add(menuEditarAorG);
+
+        jMenuItem1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/medico.png"))); // NOI18N
+        jMenuItem1.setText("Editar Médico");
+        menuEditar.add(jMenuItem1);
+
+        menuEditarPaciente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuEditarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/pessoa.png"))); // NOI18N
+        menuEditarPaciente.setText("Editar Paciente");
+        menuEditar.add(menuEditarPaciente);
+        menuEditar.add(jSeparator4);
+
+        menuEditarSetor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuEditarSetor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/5585Add_Folder_25911.png"))); // NOI18N
+        menuEditarSetor.setText("Editar Setor");
+        menuEditar.add(menuEditarSetor);
+
+        menuEditarValorConsulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuEditarValorConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/valorConsulta.png"))); // NOI18N
+        menuEditarValorConsulta.setText("Editar Valor da Consulta");
+        menuEditar.add(menuEditarValorConsulta);
 
         jMenuBar1.add(menuEditar);
+
+        menuDeletarCadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/flame_106452.png"))); // NOI18N
+        menuDeletarCadastros.setText("Deletar Cadastros");
+        menuDeletarCadastros.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
+
+        menuDeletarPaciente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuDeletarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/pessoa.png"))); // NOI18N
+        menuDeletarPaciente.setText("Deletar Paciente");
+        menuDeletarCadastros.add(menuDeletarPaciente);
+
+        menuDeletarMedico.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuDeletarMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/medico.png"))); // NOI18N
+        menuDeletarMedico.setText("Deletar Médico");
+        menuDeletarCadastros.add(menuDeletarMedico);
+
+        menuDeletarAtendente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuDeletarAtendente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/atendente.png"))); // NOI18N
+        menuDeletarAtendente.setText("Deletar Atendente");
+        menuDeletarCadastros.add(menuDeletarAtendente);
+
+        menuDeletarGerente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuDeletarGerente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/gerente.png"))); // NOI18N
+        menuDeletarGerente.setText("Deletar Gerente");
+        menuDeletarCadastros.add(menuDeletarGerente);
+        menuDeletarCadastros.add(jSeparator5);
+
+        menuDeletarSetor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuDeletarSetor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/5585Add_Folder_25911.png"))); // NOI18N
+        menuDeletarSetor.setText("Deletar Setor");
+        menuDeletarCadastros.add(menuDeletarSetor);
+
+        jMenuItem2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/consulta.png"))); // NOI18N
+        jMenuItem2.setText("Deletar Consulta");
+        menuDeletarCadastros.add(jMenuItem2);
+
+        jMenuBar1.add(menuDeletarCadastros);
 
         menuConsultas.setBackground(new java.awt.Color(255, 255, 255));
         menuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/search.png"))); // NOI18N
@@ -168,6 +262,18 @@ public class GerenteUI extends javax.swing.JFrame {
         catendenteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/atendente.png"))); // NOI18N
         catendenteMenu.setText("Atendente");
         menuConsultas.add(catendenteMenu);
+
+        menuConsultasSetor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
+        menuConsultasSetor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuConsultasSetor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/5585Add_Folder_25911.png"))); // NOI18N
+        menuConsultasSetor.setText("Setor");
+        menuConsultas.add(menuConsultasSetor);
+
+        menuConsultasConsulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
+        menuConsultasConsulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuConsultasConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/consulta.png"))); // NOI18N
+        menuConsultasConsulta.setText("Consulta");
+        menuConsultas.add(menuConsultasConsulta);
         menuConsultas.add(jSeparator2);
 
         cfolhapagamentoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
@@ -200,6 +306,18 @@ public class GerenteUI extends javax.swing.JFrame {
         clistaatendenteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/atendente.png"))); // NOI18N
         clistaatendenteMenu.setText("Lista De Atendentes");
         menuConsultas.add(clistaatendenteMenu);
+
+        menuListaConsulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
+        menuListaConsulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuListaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/consulta.png"))); // NOI18N
+        menuListaConsulta.setText("Lista De Consultas");
+        menuConsultas.add(menuListaConsulta);
+
+        menuListaSetores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
+        menuListaSetores.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menuListaSetores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/clinica/images/5585Add_Folder_25911.png"))); // NOI18N
+        menuListaSetores.setText("Lista de Setores");
+        menuConsultas.add(menuListaSetores);
 
         jMenuBar1.add(menuConsultas);
 
@@ -262,6 +380,10 @@ public class GerenteUI extends javax.swing.JFrame {
         m.setVisible(true);
     }//GEN-LAST:event_addmedicoMenuActionPerformed
 
+    private void menuAddGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAddGerenteActionPerformed
+        g.setVisible(true);
+    }//GEN-LAST:event_menuAddGerenteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -312,13 +434,32 @@ public class GerenteUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem cmedicoMenu;
     private javax.swing.JMenuItem cpacienteMenu;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JMenuItem menuAddGerente;
+    private javax.swing.JMenuItem menuAddSetor;
     private javax.swing.JMenu menuCadastros;
     private javax.swing.JMenu menuConsultas;
+    private javax.swing.JMenuItem menuConsultasConsulta;
+    private javax.swing.JMenuItem menuConsultasSetor;
+    private javax.swing.JMenuItem menuDeletarAtendente;
+    private javax.swing.JMenu menuDeletarCadastros;
+    private javax.swing.JMenuItem menuDeletarGerente;
+    private javax.swing.JMenuItem menuDeletarMedico;
+    private javax.swing.JMenuItem menuDeletarPaciente;
+    private javax.swing.JMenuItem menuDeletarSetor;
     private javax.swing.JMenu menuEditar;
-    private javax.swing.JMenuItem menuEditarFuncionario;
+    private javax.swing.JMenuItem menuEditarAorG;
+    private javax.swing.JMenuItem menuEditarPaciente;
+    private javax.swing.JMenuItem menuEditarSetor;
+    private javax.swing.JMenuItem menuEditarValorConsulta;
+    private javax.swing.JMenuItem menuListaConsulta;
+    private javax.swing.JMenuItem menuListaSetores;
     private javax.swing.JMenu sairMenu;
     // End of variables declaration//GEN-END:variables
 }
