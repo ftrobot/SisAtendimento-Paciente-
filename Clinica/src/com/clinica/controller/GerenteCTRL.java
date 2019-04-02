@@ -7,10 +7,7 @@ package com.clinica.controller;
 
 import com.clinica.dal.Conexao;
 import com.clinica.dal.GerenteDAL;
-import com.clinica.model.Endereco;
 import com.clinica.model.Gerente;
-import com.clinica.model.Setor;
-import com.clinica.model.Telefone;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,7 +36,7 @@ public class GerenteCTRL {
 
     }
 
-    public void add(Long cpf, int rg, String nome, String data_nasc, String email, String sexo, int cTrabalho, Long pis, Double salario, String cargo, int setor, String endereco, String bairro, String numero, int cep, String celular, String telefone) throws SQLException {
+    public void add(Long cpf, String rg, String nome, String data_nasc, String email, String sexo, int cTrabalho, Long pis, Double salario, String cargo, int setor, String endereco, String bairro, String numero, int cep, String celular, String telefone) throws SQLException {
 
         g = new Gerente();
         gd = new GerenteDAL(con);

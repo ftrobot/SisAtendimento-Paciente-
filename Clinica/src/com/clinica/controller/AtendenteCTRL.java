@@ -37,7 +37,7 @@ public class AtendenteCTRL {
 
     }
 
-    public void add(Long cpf, int rg, String nome, String data_nasc, String email, String sexo, int cTrabalho, Long pis, Double salario, String cargo, int setor, String endereco, String bairro, String numero, int cep, String celular, String telefone) throws SQLException {
+    public void add(Long cpf, String rg, String nome, String data_nasc, String email, String sexo, int cTrabalho, Long pis, Double salario, String cargo, int setor, String endereco, String bairro, String numero, int cep, String celular, String telefone) throws SQLException {
 
         a = new Atendente();
         ad = new AtendenteDAL(con);

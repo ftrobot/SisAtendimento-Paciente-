@@ -36,7 +36,7 @@ public class MedicoCTRL {
 
     }
 
-    public void addMedico(Long crm, Long cpf, int rg, String nome, String data_nasc, String email, String sexo, int cTrabalho, Long pis, Double salario, String cargo, int setor, String endereco, String bairro, String numero, int cep, String celular, String telefone, String fone3, String especialidade) throws SQLException {
+    public void addMedico(Long crm, Long cpf, String rg, String nome, String data_nasc, String email, String sexo, int cTrabalho, Long pis, Double salario, String cargo, int setor, String endereco, String bairro, String numero, int cep, String celular, String telefone, String fone3, String especialidade) throws SQLException {
         m = new Medico();
         md = new MedicoDAL(con);
 

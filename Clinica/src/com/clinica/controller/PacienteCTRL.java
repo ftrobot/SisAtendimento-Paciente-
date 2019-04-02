@@ -36,7 +36,7 @@ public class PacienteCTRL {
 
     }
 
-    public void add(long cpf, int rg, String nome, String data_nasc, String pSaude, String email, String sexo, String endereco, String bairro, String numero, int CEP, String celular, String telefone) throws SQLException {
+    public void add(long cpf, String rg, String nome, String data_nasc, String pSaude, String email, String sexo, String endereco, String bairro, String numero, int CEP, String celular, String telefone) throws SQLException {
 
         p = new Paciente();
         pd = new PacienteDAL(con);
