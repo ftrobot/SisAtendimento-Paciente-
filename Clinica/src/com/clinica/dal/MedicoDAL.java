@@ -37,7 +37,7 @@ public class MedicoDAL {
             PreparedStatement stm4 = con.getPreparedStatement(sql4);
 
             stm.setLong(1, m.getCpf());
-            stm.setInt(2, m.getRg());
+            stm.setString(2, m.getRg());
             stm.setString(3, m.getNome());
             stm.setString(4, m.getData_nasc());
             stm.setString(5, m.getEmail());

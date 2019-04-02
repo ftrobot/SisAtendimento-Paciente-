@@ -36,7 +36,7 @@ public class PacienteDAL {
 
             stm.setLong(1, p.getCpf());
             stm.setString(2, p.getNome());
-            stm.setInt(3, p.getRg());
+            stm.setString(3, p.getRg());
             stm.setString(4, p.getData_nasc());
             stm.setString(5, p.getpSaude());
             stm.setString(6, p.getEmail());

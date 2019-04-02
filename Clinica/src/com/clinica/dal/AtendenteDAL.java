@@ -35,7 +35,7 @@ public class AtendenteDAL {
             PreparedStatement stm3 = con.getPreparedStatement(sql3);
 
             stm.setLong(1, a.getCpf());
-            stm.setInt(2, a.getRg());
+            stm.setString(2, a.getRg());
             stm.setString(3, a.getNome());
             stm.setString(4, a.getData_nasc());
             stm.setString(5, a.getEmail());

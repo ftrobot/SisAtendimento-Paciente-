@@ -22,20 +22,20 @@ public class GerenteDAL {
         con.setAutoCommit(false);
     }
 
-    public void add(Gerente g) throws SQLException {
+   public void add(Gerente g) throws SQLException {
 
         try {
 
             String sql = "insert into Funcionarios (id_funcionario, rg, nome, data_nasc, email, sexo, carteira_trabalho, pis, salario, cargo, Setores_id_setor, Telefones_id_telefone, Enderecos_id_endereco) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            String sql2 = "insert into Telefones (id_telefone, celular, fixo, fone_3) values (?, ?, ?, ?)";
+            String sql2 = "insert into Telefones (id_telefone, celular, fixo) values (?, ?, ?)";
             String sql3 = "insert into Enderecos (id_endereco, endereco, numero, cep, bairro) values (?, ?, ?, ?, ?)";
 
-            PreparedStatement stm = (PreparedStatement) con.getPreparedStatement(sql);
-            PreparedStatement stm2 = (PreparedStatement) con.getPreparedStatement(sql2);
-            PreparedStatement stm3 = (PreparedStatement) con.getPreparedStatement(sql3);
+            PreparedStatement stm = con.getPreparedStatement(sql);
+            PreparedStatement stm2 = con.getPreparedStatement(sql2);
+            PreparedStatement stm3 = con.getPreparedStatement(sql3);
 
             stm.setLong(1, g.getCpf());
-            stm.setInt(2, g.getRg());
+            stm.setString(2, g.getRg());
             stm.setString(3, g.getNome());
             stm.setString(4, g.getData_nasc());
             stm.setString(5, g.getEmail());
@@ -51,7 +51,6 @@ public class GerenteDAL {
             stm2.setLong(1, g.getCpf());
             stm2.setString(2, g.getTelefone().getCelular());
             stm2.setString(3, g.getTelefone().getTelefone());
-            stm2.setString(4, g.getTelefone().getFone3());
 
             stm3.setLong(1, g.getCpf());
             stm3.setString(2, g.getEndereco().getEndereco());
@@ -59,16 +58,17 @@ public class GerenteDAL {
             stm3.setLong(4, g.getEndereco().getCep());
             stm3.setString(5, g.getEndereco().getBairro());
 
-            stm.execute();
             stm2.execute();
             stm3.execute();
+            stm.execute();
+
+            con.commit();
 
         } catch (SQLException e) {
             e.getStackTrace();
             con.rollBack();
             System.out.println("ERROR");
         } finally {
-            con.commit();
             con.getConnection().close();
             System.out.println("Desconectado");
         }
