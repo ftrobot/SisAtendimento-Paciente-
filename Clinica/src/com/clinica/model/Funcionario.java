@@ -16,7 +16,7 @@ public class Funcionario {
     private Telefone telefone;
     
     private String nome;
-    private int rg;
+    private String rg;
     private Long cpf;
     private String data_nasc;
     private String email;
@@ -56,11 +56,11 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public int getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(int rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 

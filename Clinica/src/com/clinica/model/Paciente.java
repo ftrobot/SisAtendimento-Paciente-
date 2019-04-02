@@ -15,7 +15,7 @@ public class Paciente {
     private Telefone telefone;
 
     private String nome;
-    private int rg;
+    private String rg;
     private long cpf;
     private String data_nasc;
     private String pSaude;
@@ -51,11 +51,11 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public int getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(int rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
