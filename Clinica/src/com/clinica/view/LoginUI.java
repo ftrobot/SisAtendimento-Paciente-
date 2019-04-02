@@ -34,9 +34,9 @@ public class LoginUI extends javax.swing.JFrame {
         btnEntrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela De Login");
+        setTitle("Login");
         setAlwaysOnTop(true);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

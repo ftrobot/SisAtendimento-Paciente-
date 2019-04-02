@@ -61,8 +61,8 @@ public class CadastroPacienteUI extends javax.swing.JFrame {
         txtBairro = new javax.swing.JTextField();
         txtNumero = new javax.swing.JTextField();
         txtCPF = new javax.swing.JFormattedTextField();
-        txtRG = new javax.swing.JFormattedTextField();
         txtCEP = new javax.swing.JFormattedTextField();
+        txtRG = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar Paciente");
@@ -122,12 +122,6 @@ public class CadastroPacienteUI extends javax.swing.JFrame {
 
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###-#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -292,7 +286,7 @@ public class CadastroPacienteUI extends javax.swing.JFrame {
 
             try {
                 p = new PacienteCTRL();
-                p.add(Long.parseLong(txtCPF.getText().replace(".", "").replace("-", "")), Integer.parseInt(txtRG.getText().replace(".", "").replace("-", "")), txtNome.getText(), txtDNASC.getText(), txtPSaude.getText(), txtEMAIL.getText(), sexo,
+                p.add(Long.parseLong(txtCPF.getText().replace(".", "").replace("-", "")), txtRG.getText().replace(".", "").replace("-", "").replace(" ", ""), txtNome.getText(), txtDNASC.getText(), txtPSaude.getText(), txtEMAIL.getText(), sexo,
                          txtEndereco.getText(), txtBairro.getText(), txtNumero.getText(), Integer.parseInt(txtCEP.getText().replaceAll("-", "")), txtCelular.getText().replace("-", "").replace("(", "").replace(")", "").replace(" ", ""), 
                          txtTelefone.getText().replace("-", "").replace("(", "").replace(")", "").replace(" ", ""));
             } catch (SQLException ex) {
@@ -365,7 +359,7 @@ public class CadastroPacienteUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtPSaude;
-    private javax.swing.JFormattedTextField txtRG;
+    private javax.swing.JTextField txtRG;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

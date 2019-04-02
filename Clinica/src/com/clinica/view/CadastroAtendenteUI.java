@@ -57,7 +57,6 @@ public class CadastroAtendenteUI extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtDNASC = new javax.swing.JFormattedTextField();
-        txtRG = new javax.swing.JFormattedTextField();
         txtCPF = new javax.swing.JFormattedTextField();
         txtEmail = new javax.swing.JTextField();
         txtCTrabalho = new javax.swing.JFormattedTextField();
@@ -71,6 +70,7 @@ public class CadastroAtendenteUI extends javax.swing.JFrame {
         txtNumero = new javax.swing.JTextField();
         txtCEP = new javax.swing.JFormattedTextField();
         btnCadastrar = new javax.swing.JButton();
+        txtRG = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro Atendente");
@@ -110,12 +110,6 @@ public class CadastroAtendenteUI extends javax.swing.JFrame {
 
         try {
             txtDNASC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###-#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -174,27 +168,28 @@ public class CadastroAtendenteUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel8)
-                            .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtCPF, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtRG, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtDNASC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtPIS, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtCTrabalho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)))
-                                .addGap(203, 203, 203)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabel8)
+                                .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtCPF, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDNASC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtPIS, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtCTrabalho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)))
+                                    .addGap(203, 203, 203)))
+                            .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
@@ -241,8 +236,8 @@ public class CadastroAtendenteUI extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -337,7 +332,7 @@ public class CadastroAtendenteUI extends javax.swing.JFrame {
             try {
                 a = new AtendenteCTRL();
 
-                a.add(Long.parseLong(txtCPF.getText().replace(".", "").replace("-", "")), Integer.parseInt(txtRG.getText().replace(".", "").replace("-", "")), txtNome.getText(), txtDNASC.getText(), txtEmail.getText(), sexo,
+                a.add(Long.parseLong(txtCPF.getText().replace(".", "").replace("-", "")), txtRG.getText().replace(".", "").replace("-", "").replace(" ", ""), txtNome.getText(), txtDNASC.getText(), txtEmail.getText(), sexo,
                         Integer.parseInt(txtCTrabalho.getText()), Long.parseLong(txtPIS.getText()), Double.parseDouble(txtSalario.getText().replace(",", "")), "ATENDENTE", 1, txtEndereco.getText(),
                         txtBairro.getText(), txtNumero.getText(), Integer.parseInt(txtCEP.getText().replaceAll("-", "")), txtCelular.getText().replace("-", "").replace("(", "").replace(")", "").replace(" ", ""), 
                         txtTelefone.getText().replace("-", "").replace("(", "").replace(")", "").replace(" ", ""));
@@ -421,7 +416,7 @@ public class CadastroAtendenteUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JFormattedTextField txtPIS;
-    private javax.swing.JFormattedTextField txtRG;
+    private javax.swing.JTextField txtRG;
     private javax.swing.JFormattedTextField txtSalario;
     private javax.swing.JTextField txtSetor;
     private javax.swing.JFormattedTextField txtTelefone;
